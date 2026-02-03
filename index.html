@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Golden Dragon Restaurant | Pan-Asian Dining by Al Hira Beach</title>
+  <meta name="description" content="Premium Pan-Asian restaurant at Al Hira Beach, Sharjah. Sushi, Chinese classics, buffet, and beachfront dining.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    :root {
+      --bg-primary: #0B0B0D;
+      --bg-secondary: #141419;
+      --accent: #C69B3C;
+      --text-primary: #F4F1EA;
+      --text-secondary: #B8B2AA;
+    }
+    
+    html { scroll-behavior: smooth; }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+    }
+    
+    h1, h2, h3 { font-family: 'Playfair Display', serif; }
+    
+    .label {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--accent);
+    }
+    
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 20px 6vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.3s ease;
+    }
+    
+    nav.scrolled {
+      background: rgba(11, 11, 13, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 16px 6vw;
+    }
+    
+    .logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      color: var(--text-primary);
+      text-decoration: none;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 32px;
+    }
+    
+    .nav-links a {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      color: var(--text-secondary);
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: color 0.3s ease;
+    }
+    
+    .nav-links a:hover { color: var(--text-primary); }
+    
+    .menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text-primary);
+      cursor: pointer;
+    }
+    
+    /* Buttons */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 32px;
+      background: var(--accent);
+      color: var(--bg-primary);
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      border-radius: 999px;
+      border: none;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(198, 155, 60, 0.3);
+    }
+    
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 32px;
+      background: transparent;
+      color: var(--text-primary);
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      border-radius: 999px;
+      border: 1px solid rgba(244, 241, 234, 0.3);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    
+    .btn-secondary:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    
+    .link-arrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      text-decoration: none;
+      transition: gap 0.3s ease;
+    }
+    
+    .link-arrow:hover { gap: 12px; }
+    
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 20px 80px;
+    }
+    
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+    }
+    
+    .hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(11, 11, 13, 0.4), rgba(11, 11, 13, 0.7));
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+    }
+    
+    .hero-logo {
+      width: 100px;
+      height: 100px;
+      margin: 0 auto 24px;
+    }
+    
+    .hero h1 {
+      font-size: clamp(40px, 8vw, 72px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+    
+    .hero p {
+      font-size: clamp(16px, 2.5vw, 22px);
+      color: var(--text-secondary);
+      margin-bottom: 40px;
+    }
+    
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+    /* Sections */
+    section {
+      padding: 100px 6vw;
+    }
+    
+    .section-dark { background: var(--bg-primary); }
+    .section-light { background: var(--bg-secondary); }
+    
+    .section-header {
+      max-width: 600px;
+      margin-bottom: 60px;
+    }
+    
+    .section-header h2 {
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin: 16px 0;
+    }
+    
+    .section-header p {
+      color: var(--text-secondary);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+    
+    /* Feature Section */
+    .feature {
+      min-height: 80vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding: 100px 6vw;
+    }
+    
+    .feature-bg {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+    }
+    
+    .feature-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .feature-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(11, 11, 13, 0.6);
+    }
+    
+    .feature-content {
+      position: relative;
+      z-index: 1;
+      max-width: 500px;
+    }
+    
+    .feature-content h2 {
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 700;
+      margin: 16px 0 24px;
+    }
+    
+    .feature-content p {
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+      line-height: 1.7;
+    }
+    
+    /* Menu Cards */
+    .menu-grid {
+      display: grid;
+      gap: 32px;
+    }
+    
+    .menu-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: rgba(20, 20, 25, 0.6);
+      border: 1px solid rgba(244, 241, 234, 0.08);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+    
+    .menu-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(198, 155, 60, 0.3);
+    }
+    
+    .menu-card:nth-child(even) {
+      direction: rtl;
+    }
+    
+    .menu-card:nth-child(even) > * {
+      direction: ltr;
+    }
+    
+    .menu-card-image {
+      height: 100%;
+      min-height: 300px;
+    }
+    
+    .menu-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .menu-card:hover .menu-card-image img {
+      transform: scale(1.03);
+    }
+    
+    .menu-card-content {
+      padding: 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    .menu-card-content h3 {
+      font-size: 28px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+    
+    .menu-card-content p {
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+      line-height: 1.7;
+    }
+    
+    /* Reviews */
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    
+    .review-card {
+      background: rgba(20, 20, 25, 0.6);
+      border: 1px solid rgba(244, 241, 234, 0.08);
+      border-radius: 12px;
+      padding: 32px;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+    
+    .review-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(198, 155, 60, 0.3);
+    }
+    
+    .stars {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 16px;
+    }
+    
+    .stars svg {
+      fill: var(--accent);
+      color: var(--accent);
+      width: 16px;
+      height: 16px;
+    }
+    
+    .review-card p {
+      font-size: 16px;
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+    
+    .review-card .author {
+      color: var(--text-secondary);
+      font-size: 14px;
+    }
+    
+    /* Gallery */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 280px);
+      gap: 16px;
+    }
+    
+    .gallery-item {
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    
+    .gallery-item:first-child {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+    
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+    
+    /* Reservation */
+    .reservation-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 64px;
+      align-items: start;
+    }
+    
+    .reservation-info h2 {
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 700;
+      margin: 16px 0 24px;
+    }
+    
+    .reservation-info > p {
+      color: var(--text-secondary);
+      margin-bottom: 32px;
+      line-height: 1.7;
+    }
+    
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    
+    .contact-links a {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--text-primary);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.3s ease;
+    }
+    
+    .contact-links a:hover { color: var(--accent); }
+    
+    .contact-links svg {
+      color: var(--accent);
+      width: 20px;
+      height: 20px;
+    }
+    
+    .hours {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--text-secondary);
+      font-size: 14px;
+    }
+    
+    .hours svg {
+      color: var(--accent);
+      width: 18px;
+      height: 18px;
+    }
+    
+    /* Form */
+    .form-card {
+      background: rgba(20, 20, 25, 0.6);
+      border: 1px solid rgba(244, 241, 234, 0.08);
+      border-radius: 12px;
+      padding: 40px;
+    }
+    
+    .form-card h3 {
+      font-size: 20px;
+      margin-bottom: 24px;
+    }
+    
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    
+    input, select, textarea {
+      width: 100%;
+      padding: 14px 16px;
+      background: rgba(244, 241, 234, 0.05);
+      border: 1px solid rgba(244, 241, 234, 0.12);
+      border-radius: 8px;
+      color: var(--text-primary);
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
+    
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      background: rgba(244, 241, 234, 0.08);
+    }
+    
+    input::placeholder, textarea::placeholder {
+      color: var(--text-secondary);
+      opacity: 0.6;
+    }
+    
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+      margin-bottom: 16px;
+    }
+    
+    .form-card .btn-primary {
+      width: 100%;
+      justify-content: center;
+    }
+    
+    /* Footer */
+    footer {
+      background: var(--bg-secondary);
+      padding: 80px 6vw 40px;
+    }
+    
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+    
+    .footer-col h4 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    
+    .footer-col h3 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+    
+    .footer-col p, .footer-col a {
+      color: var(--text-secondary);
+      font-size: 14px;
+      line-height: 1.7;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-col a:hover { color: var(--accent); }
+    
+    .map-placeholder {
+      background: rgba(20, 20, 25, 0.8);
+      border-radius: 8px;
+      height: 120px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    
+    .map-placeholder svg {
+      color: var(--accent);
+      width: 24px;
+      height: 24px;
+    }
+    
+    .map-placeholder p {
+      font-size: 12px;
+    }
+    
+    .map-placeholder a {
+      font-size: 11px;
+      color: var(--accent);
+    }
+    
+    .footer-bottom {
+      border-top: 1px solid rgba(244, 241, 234, 0.1);
+      padding-top: 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+    
+    .footer-links {
+      display: flex;
+      gap: 24px;
+    }
+    
+    .footer-links a {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-links a:hover { color: var(--text-primary); }
+    
+    .social-links {
+      display: flex;
+      gap: 16px;
+    }
+    
+    .social-links a {
+      color: var(--text-secondary);
+      transition: color 0.3s ease;
+    }
+    
+    .social-links a:hover { color: var(--accent); }
+    
+    .copyright {
+      font-size: 12px;
+      color: var(--text-secondary);
+      opacity: 0.6;
+    }
+    
+    /* Mobile Menu */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(11, 11, 13, 0.98);
+      backdrop-filter: blur(10px);
+      z-index: 999;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+    }
+    
+    .mobile-menu.active { display: flex; }
+    
+    .mobile-menu a {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      color: var(--text-primary);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .mobile-menu a:hover { color: var(--accent); }
+    
+    .close-menu {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      background: none;
+      border: none;
+      color: var(--text-primary);
+      cursor: pointer;
+    }
+    
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .menu-card { grid-template-columns: 1fr; }
+      .menu-card-image { min-height: 250px; }
+      .menu-card:nth-child(even) { direction: ltr; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .reservation-grid { grid-template-columns: 1fr; }
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 200px);
+      }
+      .gallery-item:first-child {
+        grid-column: span 2;
+        grid-row: span 1;
+      }
+      .footer-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .menu-btn { display: block; }
+      .hero { padding: 140px 20px 60px; }
+      .hero-buttons { flex-direction: column; align-items: center; }
+      .btn-primary, .btn-secondary { width: 100%; max-width: 280px; justify-content: center; }
+      section { padding: 60px 5vw; }
+      .menu-card-content { padding: 32px; }
+      .gallery-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(5, 200px);
+      }
+      .gallery-item:first-child { grid-column: span 1; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+    
+    /* Animations */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--bg-primary); }
+    ::-webkit-scrollbar-thumb { background: rgba(198, 155, 60, 0.4); border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(198, 155, 60, 0.6); }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav id="navbar">
+    <a href="#" class="logo">GOLDEN DRAGON</a>
+    <div class="nav-links">
+      <a href="#menu">Menu</a>
+      <a href="#reservations">Reserve</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <button class="menu-btn" onclick="toggleMenu()">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+  </nav>
+  
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="close-menu" onclick="toggleMenu()">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+    <a href="#menu" onclick="toggleMenu()">Menu</a>
+    <a href="#reservations" onclick="toggleMenu()">Reservations</a>
+    <a href="#gallery" onclick="toggleMenu()">Gallery</a>
+    <a href="#contact" onclick="toggleMenu()">Contact</a>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-bg">
+      <img src="images/hero_beach_dining.jpg" alt="Golden Dragon Beachfront Dining">
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <svg class="hero-logo" viewBox="0 0 100 100" fill="none" stroke="#C69B3C" stroke-width="1.5">
+        <path d="M50 8C26 8 8 26 8 50C8 70 20 86 36 92C33 88 32 82 32 76C32 62 42 52 50 52C58 52 68 62 68 76C68 82 67 88 64 92C80 86 92 70 92 50C92 26 74 8 50 8Z"/>
+        <circle cx="50" cy="40" r="7"/>
+        <path d="M36 30L28 22M64 30L72 22M50 22V14" stroke-linecap="round"/>
+        <path d="M25 50C25 50 30 45 34 50C38 55 34 60 34 60M75 50C75 50 70 45 66 50C62 55 66 60 66 60" stroke-linecap="round"/>
+        <path d="M42 88C42 88 46 84 50 84C54 84 58 88 58 88" stroke-linecap="round"/>
+      </svg>
+      <p class="label">SHARJAH</p>
+      <h1>GOLDEN DRAGON</h1>
+      <p>Pan-Asian flavors by Al Hira Beach.</p>
+      <div class="hero-buttons">
+        <a href="#reservations" class="btn-primary">Book a Table</a>
+        <a href="#menu" class="btn-secondary">View Menu</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section class="feature">
+    <div class="feature-bg">
+      <img src="images/experience_beach_night.jpg" alt="Beach Experience">
+      <div class="feature-overlay"></div>
+    </div>
+    <div class="feature-content">
+      <p class="label">THE EXPERIENCE</p>
+      <h2>Dine by the Beach</h2>
+      <p>A laid-back luxury spot where the breeze meets bold flavor. Come for sunset, stay for the feast.</p>
+      <a href="#menu" class="link-arrow">Explore the menu →</a>
+    </div>
+  </section>
+
+  <!-- Cuisine -->
+  <section class="feature">
+    <div class="feature-bg">
+      <img src="images/cuisine_plated_dish.jpg" alt="Pan-Asian Cuisine">
+      <div class="feature-overlay"></div>
+    </div>
+    <div class="feature-content" style="margin-left: auto; text-align: right;">
+      <p class="label">CUISINE</p>
+      <h2>Authentic Pan-Asian</h2>
+      <p>From hand-rolled sushi to wok-fired classics—every dish is built on fresh ingredients and bold, balanced seasoning.</p>
+      <a href="#menu" class="link-arrow">See our specialties →</a>
+    </div>
+  </section>
+
+  <!-- Menu -->
+  <section id="menu" class="section-light">
+    <div class="section-header fade-in">
+      <p class="label">MENU</p>
+      <h2>What's cooking at Golden Dragon</h2>
+      <p>A concise menu built for sharing: sushi, stir-fry, noodles, and house specials—served fresh, fast, and beautiful.</p>
+    </div>
+    
+    <div class="menu-grid">
+      <div class="menu-card fade-in">
+        <div class="menu-card-image">
+          <img src="images/menu_sushi.jpg" alt="Sushi & Rolls">
+        </div>
+        <div class="menu-card-content">
+          <h3>Sushi & Rolls</h3>
+          <p>Maki, nigiri, and chef's specials. Fresh fish, perfectly seasoned rice, and artistic presentation.</p>
+          <a href="#reservations" class="link-arrow">View sushi →</a>
+        </div>
+      </div>
+      
+      <div class="menu-card fade-in">
+        <div class="menu-card-image">
+          <img src="images/menu_chinese.jpg" alt="Chinese Classics">
+        </div>
+        <div class="menu-card-content">
+          <h3>Chinese Classics</h3>
+          <p>Noodles, rice, and wok-fired favorites. Authentic flavors with a modern twist.</p>
+          <a href="#reservations" class="link-arrow">View mains →</a>
+        </div>
+      </div>
+      
+      <div class="menu-card fade-in">
+        <div class="menu-card-image">
+          <img src="images/menu_buffet.jpg" alt="Buffet Nights">
+        </div>
+        <div class="menu-card-content">
+          <h3>Buffet Nights</h3>
+          <p>Live stations, grills, salads, and sweets. An abundance of flavors for every palate.</p>
+          <a href="#reservations" class="link-arrow">View buffet →</a>
+        </div>
+      </div>
+    </div>
+    
+    <div style="margin-top: 40px; display: flex; gap: 16px; flex-wrap: wrap;">
+      <a href="#" class="btn-secondary" onclick="alert('Menu PDF coming soon!')">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+          <polyline points="7 10 12 15 17 10"></polyline>
+          <line x1="12" y1="15" x2="12" y2="3"></line>
+        </svg>
+        Full menu (PDF)
+      </a>
+      <a href="#reservations" class="btn-primary">Reserve a table</a>
+    </div>
+  </section>
+
+  <!-- Sushi Bar -->
+  <section class="feature">
+    <div class="feature-bg">
+      <img src="images/sushi_bar_platter.jpg" alt="Sushi Bar">
+      <div class="feature-overlay"></div>
+    </div>
+    <div class="feature-content">
+      <p class="label">SUSHI BAR</p>
+      <h2>Fresh & Precise</h2>
+      <p>Rice seasoned daily. Fish handled cold, sliced to order. Classic rolls and house signatures—clean, bright, and balanced.</p>
+      <a href="#reservations" class="link-arrow">Order sushi →</a>
+    </div>
+  </section>
+
+  <!-- Buffet -->
+  <section class="feature">
+    <div class="feature-bg">
+      <img src="images/buffet_spread.jpg" alt="Buffet Spread">
+      <div class="feature-overlay"></div>
+    </div>
+    <div class="feature-content" style="margin-left: auto; text-align: right;">
+      <p class="label">BUFFET</p>
+      <h2>A Spread for Everyone</h2>
+      <p>Live stations, grilled favorites, salads, and sweets. Bring the family—there's a plate here for every craving.</p>
+      <a href="#reservations" class="link-arrow">Check buffet times →</a>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section class="section-dark">
+    <div class="section-header fade-in">
+      <p class="label">REVIEWS</p>
+      <h2>Guests are saying</h2>
+    </div>
+    
+    <div class="reviews-grid">
+      <div class="review-card fade-in">
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p>"The sushi was immaculate—fresh, clean, and beautifully plated."</p>
+        <p class="author">— Ahmed K.</p>
+      </div>
+      
+      <div class="review-card fade-in">
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p>"Best buffet in Sharjah for families. Great value, great service."</p>
+        <p class="author">— Sarah M.</p>
+      </div>
+      
+      <div class="review-card fade-in">
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p>"We celebrated a birthday here. Private, calm, and the food was on point."</p>
+        <p class="author">— Fatima R.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Private Dining -->
+  <section class="feature">
+    <div class="feature-bg">
+      <img src="images/private_dining_room.jpg" alt="Private Dining">
+      <div class="feature-overlay"></div>
+    </div>
+    <div class="feature-content">
+      <p class="label">PRIVATE DINING</p>
+      <h2>Host Your Event</h2>
+      <p>Intimate spaces, curated menus, and calm service. Birthdays, business dinners, or celebrations—handled with care.</p>
+      <a href="#reservations" class="link-arrow">Request a quote →</a>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section id="gallery" class="section-light">
+    <div class="section-header fade-in">
+      <p class="label">GALLERY</p>
+      <h2>Moments at Golden Dragon</h2>
+    </div>
+    
+    <div class="gallery-grid">
+      <div class="gallery-item fade-in">
+        <img src="images/gallery_interior.jpg" alt="Restaurant Interior">
+      </div>
+      <div class="gallery-item fade-in">
+        <img src="images/gallery_dimsum.jpg" alt="Dim Sum">
+      </div>
+      <div class="gallery-item fade-in">
+        <img src="images/gallery_beachfront.jpg" alt="Beachfront Dining">
+      </div>
+      <div class="gallery-item fade-in">
+        <img src="images/gallery_dessert.jpg" alt="Dessert">
+      </div>
+      <div class="gallery-item fade-in">
+        <img src="images/gallery_bar.jpg" alt="Cocktail Bar">
+      </div>
+    </div>
+  </section>
+
+  <!-- Reservations -->
+  <section id="reservations" class="section-dark">
+    <div class="reservation-grid">
+      <div class="reservation-info fade-in">
+        <p class="label">RESERVATIONS</p>
+        <h2>Book your table</h2>
+        <p>Reserve ahead for weekends and buffet nights. Walk-ins welcome for sushi bar seating.</p>
+        
+        <div class="contact-links">
+          <a href="https://wa.me/971501234567" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+            </svg>
+            WhatsApp
+          </a>
+          <a href="tel:+971501234567">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+            +971 50 123 4567
+          </a>
+          <a href="mailto:info@goldendragon.ae">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            info@goldendragon.ae
+          </a>
+        </div>
+        
+        <div class="hours">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+          Daily 12:00 PM – 11:00 PM
+        </div>
+      </div>
+      
+      <div class="form-card fade-in">
+        <h3>Request a Booking</h3>
+        <form onsubmit="event.preventDefault(); alert('Thank you! Your reservation request has been submitted.');">
+          <div class="form-row">
+            <input type="text" placeholder="Your Name" required>
+            <input type="tel" placeholder="Phone Number" required>
+          </div>
+          <div class="form-row">
+            <input type="date" required>
+            <select required>
+              <option value="">Select Time</option>
+              <option value="12:00">12:00 PM</option>
+              <option value="13:00">1:00 PM</option>
+              <option value="14:00">2:00 PM</option>
+              <option value="18:00">6:00 PM</option>
+              <option value="19:00">7:00 PM</option>
+              <option value="20:00">8:00 PM</option>
+              <option value="21:00">9:00 PM</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <select required>
+              <option value="">Number of Guests</option>
+              <option value="1">1 Guest</option>
+              <option value="2">2 Guests</option>
+              <option value="3">3 Guests</option>
+              <option value="4">4 Guests</option>
+              <option value="5">5 Guests</option>
+              <option value="6">6+ Guests</option>
+            </select>
+            <select>
+              <option value="">Seating Preference</option>
+              <option value="indoor">Indoor</option>
+              <option value="beachfront">Beachfront</option>
+              <option value="private">Private Room</option>
+              <option value="sushi-bar">Sushi Bar</option>
+            </select>
+          </div>
+          <textarea placeholder="Special requests (optional)"></textarea>
+          <button type="submit" class="btn-primary">Request Booking</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>LOCATION</h4>
+        <h3>Visit Golden Dragon</h3>
+        <p>Al Hira Beach<br>Sharjah, UAE</p>
+      </div>
+      
+      <div class="footer-col">
+        <h4>HOURS</h4>
+        <p>Daily 12:00 PM – 11:00 PM</p>
+        <p style="margin-top: 8px; font-size: 13px;">Buffet: Fri–Sun 7:00 PM – 10:30 PM</p>
+      </div>
+      
+      <div class="footer-col">
+        <h4>CONTACT</h4>
+        <p><a href="tel:+971501234567">+971 50 123 4567</a></p>
+        <p><a href="mailto:info@goldendragon.ae">info@goldendragon.ae</a></p>
+      </div>
+      
+      <div class="footer-col">
+        <div class="map-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          <p>Al Hira Beach, Sharjah</p>
+          <a href="https://maps.google.com/?q=Al+Hira+Beach+Sharjah" target="_blank">Open in Google Maps</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <div class="footer-links">
+        <a href="#menu">Menu</a>
+        <a href="#reservations">Reservations</a>
+        <a href="#">Privacy</a>
+      </div>
+      
+      <div class="social-links">
+        <a href="https://instagram.com" target="_blank">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+          </svg>
+        </a>
+        <a href="https://facebook.com" target="_blank">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+          </svg>
+        </a>
+      </div>
+      
+      <p class="copyright">© Golden Dragon. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    function toggleMenu() {
+      document.getElementById('mobileMenu').classList.toggle('active');
+    }
+    
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 100) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+    
+    // Fade in animation on scroll
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+    
+    document.querySelectorAll('.fade-in').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
